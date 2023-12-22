@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick = "
+     playgame('rock');
+    ">ROCK</button>
+    <button onclick="
+     playgame('paper');
+    ">PAPER</button>
+    <button onclick="
+     playgame('scissors');
+    ">SCISSORS</button>
+
+    <script>
+
+
+      function playgame(plrmov){
+        const compMovee = compMove();
+
+        let result = '';
+
+        if(plrmov === 'rock'){
+          if(compMovee === 'rock'){
+            result = 'Tie';
+          } else if(compMovee === 'paper'){
+            result = 'You lose';
+          } else{
+            result = 'You win';
+          }
+        } else if(plrmov === 'paper'){
+            if(compMovee === 'rock'){
+              result = 'You win';
+            }
+            else if(compMovee === 'paper'){
+              result = 'Tie';
+            }
+            else{
+              result = 'You lose';
+            }
+        } else if(plrmov === 'scissors'){
+            if(compMovee==='rock'){
+              result = 'You lose';
+            }
+            else if(compMovee==='paper'){
+              result = 'You win';
+            }
+            else{
+              result = 'Tie';
+            }
+        }
+        alert(`you picked ${plrmov} Computer picked ${compMovee} ${result}`) ;
+
+      }
+      function compMove(){
+        const randomNumber = Math.random();
+
+        let computerMove = '';
+
+        if (randomNumber >= 0 && randomNumber < 1 / 3) {
+          computerMove = 'rock';
+        } else if (randomNumber >= 1 / 3 && randomNumber < 2 / 3) {
+          computerMove = 'paper';
+        } else if (randomNumber >= 2 / 3 && randomNumber < 1) {
+          computerMove = 'scissors';
+        }
+
+        return computerMove;
+      }
+
+
+
+
+    </script>
+  </body>
+</html>
